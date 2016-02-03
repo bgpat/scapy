@@ -81,7 +81,7 @@ if conf.use_netifaces:
         s = netifaces.ifaddresses(ifname)[netifaces.AF_INET][0]['addr']
         return socket.inet_aton(s)
       except Exception as e:
-        return None
+        return b"\0\0\0\0"
   def get_if_list():
       #return [ i[1] for i in socket.if_nameindex() ]
       return netifaces.interfaces()
